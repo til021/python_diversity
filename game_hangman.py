@@ -42,26 +42,26 @@ def guess_verification(guess, unaccented_secret):
         else:
             return
           
- def update_word(word_visual, guess, secret, unaccented_secret):
+def update_word(word_visual, guess, secret, unaccented_secret):
     for item in range(len(unaccented_secret)):
         if unidecode.unidecode(guess) == unaccented_secret[item]:
             word_visual[item] = (secret[item] + " ")
     return word_visual
   
-  def update_missing_digits(word_visual):    
+def update_missing_digits(word_visual):    
     missing_digits = 0
     for item in word_visual:
         if item == "_ ":
             missing_digits += 1
     return missing_digits
   
-  def arrego_function(word_visual, secret, unaccented_secret):
+def arrego_function(word_visual, secret, unaccented_secret):
     for item in range(len(word_visual)):
         if word_visual[item] == "_ ":
             word_visual[item] = (secret[item] + " ")
             return word_visual
           
- # Initial game setup:
+# Initial game setup:
 game = "start"
 lives = 6
 arrego = 0
