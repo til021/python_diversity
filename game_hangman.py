@@ -95,21 +95,22 @@ while game != "end":
         word_visual = update_word(word_visual, guess, secret, unaccented_secret)
         missing_digits = update_missing_digits(word_visual)
         
-        print("You are on the right track! \n")
+        print("\nYou are on the right track! ")
         print(f"The hidden word is: {''.join(word_visual)} \n")
         print(f"You still have to guess {missing_digits} digits! \n")
         
     elif game == "arrego":
         if arrego == 0:
-            word_visual = arrego_function(word_visual, guess, secret, unaccented_secret)
+            word_visual = arrego_function(word_visual, secret, unaccented_secret)
             missing_digits = update_missing_digits(word_visual)
-        arrego = 1
-        print("You arregated!! Here's your tip! \n")
+            arrego = 1
+            
+        print("\nYou arregated!! Here's your tip!")
         print(f"The hidden word is: {''.join(word_visual)} \n")
         print(f"You still have to guess {missing_digits} digits! \n")
         
     else:
-        print("Not this time.. ")
+        print("\nNot this time.. ")
         lives -= 1
         if lives > 0:
             print(f"Now you have {lives} chances to guess the word correctly! \n")
@@ -117,4 +118,3 @@ while game != "end":
             print("You ran out of lives!")
             print(f"The hidden word was: {secret}")
             game = "end"
-    
