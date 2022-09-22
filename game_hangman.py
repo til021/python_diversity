@@ -97,7 +97,7 @@ while game != "end":
         
         print("\nYou are on the right track! ")
         print(f"The hidden word is: {''.join(word_visual)} \n")
-        print(f"You still have to guess {missing_digits} digits! \n")
+        print(f"You still have to guess {missing_digits} digits! You have {lives} lives. \n")
         
     elif game == "arrego":
         if arrego == 0:
@@ -107,7 +107,7 @@ while game != "end":
             
         print("\nYou arregated!! Here's your tip!")
         print(f"The hidden word is: {''.join(word_visual)} \n")
-        print(f"You still have to guess {missing_digits} digits! \n")
+        print(f"You still have to guess {missing_digits} digits! You have {lives} lives. \n")
         
     else:
         print("\nNot this time.. ")
