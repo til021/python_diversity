@@ -23,7 +23,9 @@ for item in text:
     if item.isalpha():
         if len(item) > 6:
                 word_list.append(item.lower())
-          
+
+word_list = list(set(word_list))      
+
 # From the list above we select a randon word:
 secret = random.choice(word_list)
 unaccented_secret = unidecode.unidecode(secret)
