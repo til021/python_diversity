@@ -67,6 +67,7 @@ game = "start"
 lives = 6
 arrego = 0
 wrong_words = []
+missing_digits = -1
 
 word_visual = []
 for item in range(len(secret)):
@@ -80,12 +81,15 @@ print(f"-> If you don't know what to guess, type 'arrego' for a tip! (use it onl
 
 # Main game body
 while game != "end":
+    if missing_digits != 0:
+        guess = input("Type here your guess: ").lower()
+        while not (len(guess) > 5 or len(guess) == 1):
+            guess = input("Enter a valid guess: a").lower() 
     
-    guess = input("Type here your guess: ").lower()
-    while not (len(guess) > 5 or len(guess) == 1):
-        guess = input("Enter a valid guess: a").lower() 
+        game = guess_verification()
     
-    game = guess_verification()
+    elif missing_digits == 0:
+        game = "end"
     
     if game == "end":
         print("Congratulations! You made it! You guessed the hidden word correctly!! \n")
@@ -95,7 +99,8 @@ while game != "end":
     elif game == "continue":
         word_visual = update_word()
         missing_digits = update_missing_digits()
-        
+        if missing_digits == 0:
+            continue
         print("\nYou are on the right track! ")
         print(f"The hidden word is: {''.join(word_visual)} \n")
         print(f"You still have to guess {missing_digits} digits! You have {lives} lives. \n")
@@ -108,7 +113,7 @@ while game != "end":
             
         print("\nYou arregated!! Here's your tip!")
         print(f"The hidden word is: {''.join(word_visual)} \n")
-        print(f"You still have to guess {missing_digits} digits! You have {lives} lives. \n")
+        print(f"You have {lives} lives. \n")
         
     else:
         wrong_words.append(guess)
@@ -120,7 +125,5 @@ while game != "end":
             print("You ran out of lives!")
             print(f"The hidden word was: {secret}")
             game = "end"
-    
-        guess = input("Type here your guess: ").lower()
-
+            break  
 
