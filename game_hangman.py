@@ -11,6 +11,8 @@ import random
 import unidecode
 
 # Getting list of words:
+# You can use the website of your preference to get words from,
+# but some sites have request restrictions!
 url = "https://g1.globo.com/"
 page = urlopen(url)
 html = page.read().decode("utf-8")
@@ -24,7 +26,7 @@ for item in text:
         if len(item) > 6:
                 word_list.append(item.lower())
 
-word_list = list(set(word_list))      
+word_list = list(set(word_list)) # Removing duplicates     
 
 # Functions used
 def guess_verification():
