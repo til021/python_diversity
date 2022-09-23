@@ -63,10 +63,12 @@ def arrego_function():
             word_visual[item] = (secret[item] + " ")
             return word_visual
           
-# Initial game setup:
+# Global variables:
 game = "start"
 lives = 6
 arrego = 0
+wrong_words = []
+
 word_visual = []
 for item in range(len(secret)):
     word_visual.append("_ ")
@@ -112,7 +114,8 @@ while game != "end":
         print(f"You still have to guess {missing_digits} digits! You have {lives} lives. \n")
         
     else:
-        print(f"\nThe hidden word doesn't have '{guess}': {''.join(word_visual)}")
+        wrong_words.append(guess)
+        print(f"\nThe hidden word doesn't have '{wrong_words}': {''.join(word_visual)}")
         lives -= 1
         if lives > 0:
             print(f"Now you have {lives} lives! \n")
