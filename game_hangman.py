@@ -26,12 +26,7 @@ for item in text:
 
 word_list = list(set(word_list))      
 
-# From the list above we select a randon word:
-secret = random.choice(word_list)
-unaccented_secret = unidecode.unidecode(secret)
-
 # Functions used
-
 def guess_verification():
     if unidecode.unidecode(guess) == unaccented_secret:
         return("end")
@@ -63,7 +58,11 @@ def arrego_function():
             word_visual[item] = (secret[item] + " ")
             return word_visual
           
+
+
 # Global variables:
+secret = random.choice(word_list)
+unaccented_secret = unidecode.unidecode(secret)
 game = "start"
 lives = 6
 arrego = 0
@@ -72,21 +71,19 @@ wrong_words = []
 word_visual = []
 for item in range(len(secret)):
     word_visual.append("_ ")
-    
+
 # Game greetings
-print(f"It's the hangmans game! You have {lives} lives!\n")
+print(f"It's the hangmans game!\n")
 print(f"Try to guess the hidden word: {'_ '*len(secret)} \n")
 print(f"-> Here's a tip: the word has {len(secret)} digits!")
 print(f"-> If you don't know what to guess, type 'arrego' for a tip! (use it only once) \n")
 
 # Main game body
-
 while game != "end":
     
     guess = input("Type here your guess: ").lower()
-
     while not (len(guess) > 5 or len(guess) == 1):
-        guess = input("Enter a valid guess: a").lower()
+        guess = input("Enter a valid guess: a").lower() 
     
     game = guess_verification()
     
@@ -123,3 +120,7 @@ while game != "end":
             print("You ran out of lives!")
             print(f"The hidden word was: {secret}")
             game = "end"
+    
+        guess = input("Type here your guess: ").lower()
+
+
