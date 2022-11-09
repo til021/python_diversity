@@ -1,2 +1,3 @@
 # Python Games
-A learning python repository! Games and challenges, everything in python!
+Here you can find interesting games made through python!
+Check it out!
