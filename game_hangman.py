@@ -1,6 +1,6 @@
 
 """
-To play the game it's necessary to install the beautifulsoup4 and the unicode libraries!
+To play the game it's necessary to install the beautifulsoup4 and the unidecode libraries!
 Para rodar o programa é necessário instalar a biblioteca beautifulsoup4 e a biblioteca unidecode!
 """;
 
